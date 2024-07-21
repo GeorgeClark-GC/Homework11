@@ -2,14 +2,14 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Example 1");
+        example(1);
         int year = 2021;
         defineLeapYear(year);
-        System.out.println("Example 2");
+        example(2);
         String clientOS = "Android";
         int clientDeviceYear = 2015;
         defineRequiredLink(clientOS, clientDeviceYear);
-        System.out.println("Example 3");
+        example(3);
         int deliveryDistance = 95;
         countingDays(deliveryDistance);
     }
@@ -59,4 +59,7 @@ public class Main {
             System.out.println("Доставки нет");
     }
 
+    public static void example(int exampleNum) {
+        System.out.println("Example " + exampleNum);
+    }
 }
