@@ -1,16 +1,12 @@
 import java.time.LocalDate;
 
-
 public class Main {
     public static void main(String[] args) {
-        example(1);
         int year = 2021;
         defineLeapYear(year);
-        example(2);
-        String clientOS = "Android";
+        int clientOS = 1;
         int clientDeviceYear = 2015;
         defineRequiredLink(clientOS, clientDeviceYear);
-        example(3);
         int deliveryDistance = 95;
         countingDays(deliveryDistance);
     }
@@ -25,24 +21,21 @@ public class Main {
         }
     }
 
-    public static void defineRequiredLink(String clientOS, int clientDeviceYear) {
+    public static void defineRequiredLink(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
+        if (clientDeviceYear >= currentYear) {
+            System.out.print("Установите по ссылке версию приложения для ");
+        } else
+            System.out.print("Установите по ссылке облегченную версию приложения для ");
         switch (clientOS) {
-            case "iOS":
-                if (clientDeviceYear >= currentYear) {
-                    System.out.println("Установите версию приложения для iOS по ссылке");
-                    break;
-                } else
-                    System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            case 0:
+                System.out.println("iOS");
                 break;
-            case "Android":
-                if (clientDeviceYear >= currentYear) {
-                    System.out.println("Установите версию приложения для Android по ссылке");
-                    break;
-                } else
-                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
+            case 1:
+                System.out.println("Android");
+                break;
             default:
-                System.out.print("");
+                break;
         }
     }
 
@@ -58,9 +51,5 @@ public class Main {
             System.out.println("Потребуется дней: " + deliveryTime);
         } else
             System.out.println("Доставки нет");
-    }
-
-    public static void example(int exampleNum) {
-        System.out.println("Example " + exampleNum);
     }
 }
